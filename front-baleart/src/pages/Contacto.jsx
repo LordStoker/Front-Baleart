@@ -45,7 +45,7 @@ export default function Contacto() {
                         type="text" 
                         className="form-control" 
                         id="name" 
-                        placeholder="Tu nombre" 
+                        placeholder="John Doe" 
                         value={formData.name} 
                         onChange={handleChange} 
                     />
@@ -56,7 +56,7 @@ export default function Contacto() {
                         type="email" 
                         className="form-control" 
                         id="email" 
-                        placeholder="nombre@ejemplo.com" 
+                        placeholder="JohnDoe@smith.com" 
                         value={formData.email} 
                         onChange={handleChange} 
                     />
@@ -67,7 +67,7 @@ export default function Contacto() {
                         type="text" 
                         className="form-control" 
                         id="asunto" 
-                        placeholder="Asunto" 
+                        placeholder="Error en la página " 
                         value={formData.asunto} 
                         onChange={handleChange} 
                     />
