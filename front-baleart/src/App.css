@@ -1,2 +1,18 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "tailwindcss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.resaltada{
+    background-color: #ef233c;
+    color: #edf2f4;
+}
+
+.espacios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadMore{
+    margin-top: 20px;
+}

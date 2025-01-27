@@ -9,26 +9,26 @@ export default function Footer(){
             <ul className="d-flex justify-content-center gap-3 mt-2">
               <li>
                 <a
-                  href="#"
+                  href=""
                   className="text-gray-300 hover:text-blue-400 transition-all"
                 >
-                  Facebook
+                  <i className="bi bi-facebook"></i>
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href=""
                   className="text-gray-300 hover:text-blue-400 transition-all"
                 >
-                  Twitter
+                  <i className="bi bi-twitter-x"></i>
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href=""
                   className="text-gray-300 hover:text-blue-400 transition-all"
                 >
-                  Instagram
+                  <i className="bi bi-instagram"></i>
                 </a>
               </li>
             </ul>
