@@ -5,10 +5,11 @@ export default function Contacto() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        message: ''
+        message: '',
+        asunto: ''
     });
 
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault();
         setShowNotification(true);
         setFormData({
@@ -20,9 +21,9 @@ export default function Contacto() {
         setTimeout(() => {
             setShowNotification(false);
         }, 3000); 
-    };
+    }
 
-    const handleChange = (e) => {
+    function handleChange(e) {
         const { id, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -62,7 +63,7 @@ export default function Contacto() {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Asunto</label>
+                    <label htmlFor="asunto" className="form-label">Asunto</label>
                     <input 
                         type="text" 
                         className="form-control" 

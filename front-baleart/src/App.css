@@ -16,3 +16,8 @@
 .loadMore{
     margin-top: 20px;
 }
+
+.no-underline a {
+    text-decoration: none;
+
+  }
