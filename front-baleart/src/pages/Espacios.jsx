@@ -8,7 +8,7 @@ export default function Espacio({espacios, loadMore}){
 
     return(
         <>
-        <div className="row row-cols-1 row-cols-md-2 pt-1 row-cols-lg-2 g-4">
+        <div className="row row-cols-1 row-cols-md-2 pt-1 row-cols-lg-3 g-4">
             {espacios.map(espacio => <SpaceList key={espacio.Identificador} espacio={espacio} />)}
         </div>
         <div className="d-flex justify-content-center loadMore">

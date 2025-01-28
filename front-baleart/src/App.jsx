@@ -23,7 +23,7 @@ export default function App() {
   }, [])
 
   function loadMore() {
-    const moreSpaces = espacios.slice(espaciosDisplay.length, espaciosDisplay.length + 8);
+    const moreSpaces = espacios.slice(espaciosDisplay.length, espaciosDisplay.length + 9);
     setEspaciosDisplay([...espaciosDisplay, ...moreSpaces]);
   }
 
