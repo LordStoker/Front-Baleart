@@ -27,12 +27,13 @@ export default function SpaceList({espacio}) {
           {espacio.Servicios.map((servicio, index) => (
           <div className="card-text text-gray-600 mr-2" key={index}>
             {servicio.Nombre_ES === 'Adaptado discapacitados' ? <i className="bi bi-person-wheelchair"></i> :
+            servicio.Nombre_ES === 'Aire acondicionado' ? <i className="fa-solid fa-fan"></i>:
             servicio.Nombre_ES === 'Biblioteca' ? <i className="bi bi-book"></i> :
             servicio.Nombre_ES === 'Cafetería' ? <i className="bi bi-cup-hot"></i> :
             servicio.Nombre_ES === 'Archivo' ? <i className="bi bi-archive"></i> :
             servicio.Nombre_ES === 'Talleres' ? <i className="fa-solid fa-hand-dots"></i> :
             servicio.Nombre_ES === 'Aparcamiento' ? <i className="fa-solid fa-square-parking"></i> :
-            servicio.Nombre_ES === 'Concierto' ? <i className="fa-solid fa-music"></i> :
+            servicio.Nombre_ES === 'Conciertos' ? <i className="fa-solid fa-music"></i> :
             servicio.Nombre_ES === 'Visitas concertadas' ? <i className="fa-solid fa-calendar-days"></i> :
             servicio.Nombre_ES === 'Wifi' ? <i className="fa-solid fa-wifi"></i> : 
             servicio.Nombre_ES === 'Conferencias' ? <i className="fa-solid fa-comment"></i> :
