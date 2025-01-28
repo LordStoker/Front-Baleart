@@ -4,10 +4,6 @@ export default function SpaceList({espacio}) {
 
   const [readMore, setReadMore] = useState(false);
 
-  
-    const { Puntuación, Total } = espacio;
-
-
     return(
       <div className="col" key={espacio.Identificador}>
       <div className="card h-100 shadow-lg border-0 transition-transform duration-400 hover:scale-105">
