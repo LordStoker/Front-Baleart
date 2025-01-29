@@ -5,18 +5,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gray-800 text-white shadow-md py-3 rounded-lg">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Baleart</h1>
-        <button
-          className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg transition-transform duration-300 hover:scale-105 "
-          onClick={() => setIsOpen(!isOpen)}>
-          <i className="bi bi-list"></i>
-        </button>
-      </div>
-      {isOpen && (
-        <nav className="mt-4 bg-gray-700 rounded-lg shadow-lg">
-          <ul className="space-y-2 p-4">
+    <header className="bg-gray-800 text-white shadow-md py-1 rounded-lg relative">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <h1 className="text-2xl font-bold py-5">Baleart</h1>
+        <nav className="flex-1 flex justify-center items-center">
+          <ul className="flex space-x-4">
             <li>
               <NavLink
                 to="/"
@@ -64,7 +57,27 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-      )}
+        
+        <div className="flex items-center space-x-4">
+          <div className="text-lg font-bold px-3">Usuario</div>
+          <div className="relative">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center focus:outline-none"
+              aria-label="Seleccionar idioma"
+            >
+              <span className="text-white">🌐</span>
+            </button>
+            {isOpen && (
+              <ul className="absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded-lg shadow-lg z-50">
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Català</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">English</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Castellano</li>
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

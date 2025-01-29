@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://baleart.test',
+        target: 'http://baleart1.test',
         changeOrigin: true,
         secure: false,
       },
