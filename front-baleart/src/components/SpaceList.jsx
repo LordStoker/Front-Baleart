@@ -13,15 +13,15 @@ export default function SpaceList({espacio}) {
         alt={espacio.Nombre}
         />  
         <div className="card-body">
-        <h5 className="card-title text-lg font-bold">{espacio.Nombre}</h5>
-        <p className="card-text text-gray-600">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
-        <p className="card-text text-gray-600">Puntuación Total: {espacio.Puntuacióntotal}</p>
-        <p className="card-text text-gray-600">Nº de comentarios: {espacio.Nºdevotaciones}</p>
+        <h5 className="card-title text-lg font-bold flex justify-center">{espacio.Nombre}</h5>
+        <p className="card-text text-gray-600 flex justify-center">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
+        <p className="card-text text-gray-600 flex justify-center">Puntuación Total: {espacio.Puntuacióntotal}</p>
+        <p className="card-text text-gray-600 flex justify-center">Nº de comentarios: {espacio.Nºdevotaciones}</p>
         
         <div className="flex flex-nowrap items-stretch">
-        <p className="card-text text-gray-600">Servicios: &nbsp;</p>
+        <p className="card-text text-gray-600 flex justify-center">Servicios: &nbsp;</p>
           {espacio.Servicios.map((servicio, index) => (
-          <div className="card-text text-gray-600 mr-2" key={index}>
+          <div className="card-text text-gray-600 mr-2 flex justify-center" key={index}>
             {servicio.Nombre_ES === 'Adaptado discapacitados' ? <i className="bi bi-person-wheelchair"></i> :
             servicio.Nombre_ES === 'Aire acondicionado' ? <i className="fa-solid fa-fan"></i>:
             servicio.Nombre_ES === 'Biblioteca' ? <i className="bi bi-book"></i> :
@@ -37,7 +37,7 @@ export default function SpaceList({espacio}) {
           </div>
           ))}
         </div>
-        <p className="card-text text-gray-600">Modalidades:</p>
+        <p className="card-text text-gray-600 flex justify-center">Modalidades:</p>
         <ul>
           {espacio.Modalidades.map((servicio, index) => (
           <li className="card-text text-gray-600" key={index}>{servicio.Nombre_ES}</li>
