@@ -8,7 +8,7 @@ export default function Espacio({espacios, loadMore, hasMoreFiltered, setSearch}
         <input 
           type="text"
           placeholder="Buscar un espacio" 
-          className="form-control bg-dark text-light border-0 mt-4 text-center"
+          className="form-control bg-dark text-white border-0 mt-4 text-center"
           autoFocus 
           onChange = {(e) => setSearch(e.target.value)}
         />

@@ -39,8 +39,6 @@ export default function App() {
     setEspaciosDisplay([...espaciosDisplay, ...moreSpaces]);
   }
 
-
-
   console.log(espacios);
   // console.log(filteredSpaces);
   return (
