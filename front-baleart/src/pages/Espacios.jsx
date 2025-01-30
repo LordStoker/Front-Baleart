@@ -1,7 +1,7 @@
 import SpaceList from "../components/SpaceList"
 
 
-export default function Espacio({espacios, loadMore, hasMore, setSearch}){
+export default function Espacio({espacios, loadMore, hasMoreFiltered, setSearch}){
     return(
         <>
         <div className="row row-cols-1 row-cols-md-2 pt-1 row-cols-lg-3 g-4">
@@ -15,7 +15,7 @@ export default function Espacio({espacios, loadMore, hasMore, setSearch}){
             {espacios.map(espacio =>
                  <SpaceList key={espacio.Identificador} espacio={espacio} />)}
         </div>
-        {hasMore &&<div className="d-flex justify-content-center loadMore">
+        {hasMoreFiltered && <div className="d-flex justify-content-center loadMore">
              <button onClick={loadMore} className="btn btn-primary">Ver Más</button>
         </div>}
         </>

@@ -31,7 +31,7 @@ export default function Header() {
                 style={{ textDecoration: "none" }}
                 to="espacios"
                 className={({ isActive }) =>
-                  `relative block text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
+                  `relative  text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"
@@ -47,7 +47,7 @@ export default function Header() {
                 style={{ textDecoration: "none" }}
                 to="contacto"
                 className={({ isActive }) =>
-                  `relative block text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
+                  `relative  text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"

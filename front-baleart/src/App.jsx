@@ -53,7 +53,7 @@ export default function App() {
             loadMore={loadMore}
             search={search}
             setSearch={setSearch}
-            hasMore={espaciosDisplay.length <= filteredSpaces.length}
+            hasMoreFiltered={espaciosDisplay.length < filteredSpaces.length}
             />} />
           <Route path="contacto" element={<Contacto />} />
         </Routes>
