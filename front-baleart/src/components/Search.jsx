@@ -1,9 +1,11 @@
-export default function Search(){
-    <input 
+export default function Search({handleChange}) {
+    return(
+        <input 
           type="text"
           placeholder="Buscar un espacio" 
-          className="form-control bg-dark text-light border-0 mt-4 text-center"
-          autoFocus
-        //   onChange = {(e) => props.handleSearchCoin(e.target.value)}
+          className="searchbar form-control bg-dark text-white border-0 mt-4 text-center"
+          autoFocus 
+          onChange = {(e) => handleChange(e.target.value)}
         />
+    )
 }
