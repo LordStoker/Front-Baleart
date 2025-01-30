@@ -15,9 +15,9 @@ export default function Espacio({espacios, loadMore, hasMore, setSearch}){
             {espacios.map(espacio =>
                  <SpaceList key={espacio.Identificador} espacio={espacio} />)}
         </div>
-        <div className="d-flex justify-content-center loadMore">
-            {hasMore && <button onClick={loadMore} className="btn btn-primary">Ver Más</button>}
-        </div>
+        {hasMore &&<div className="d-flex justify-content-center loadMore">
+             <button onClick={loadMore} className="btn btn-primary">Ver Más</button>
+        </div>}
         </>
     )
     
