@@ -12,29 +12,49 @@ export default function App() {
 
   const [espacios, setEspacios] = useState([])
   const [espaciosDisplay, setEspaciosDisplay] = useState([])
+  const [filteredSpaces, setFilteredSpaces] = useState([]); 
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     fetch('/api/space')
       .then((response) => response.json())
       .then((data) => {
         setEspacios(data.data);
+        setFilteredSpaces(data.data);
         setEspaciosDisplay(data.data.slice(0, 12)); 
       })
-  }, [])
+  }, []);
+
+  //Renderiza de nuevo el filtro cuando cambia search
+  useEffect(() => {
+    const filteredSpaces = espacios.filter(espacio =>
+      espacio.Nombre.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredSpaces(filteredSpaces); //Guarda los filtrados
+    setEspaciosDisplay(filteredSpaces.slice(0, 12)); //Guarda los filtrados que se van a mostrar.
+  }, [search]);
 
   function loadMore() {
-    const moreSpaces = espacios.slice(espaciosDisplay.length, espaciosDisplay.length + 9);
+    const moreSpaces = filteredSpaces.slice(espaciosDisplay.length, espaciosDisplay.length + 6);
     setEspaciosDisplay([...espaciosDisplay, ...moreSpaces]);
   }
 
+
+
   console.log(espacios);
+  // console.log(filteredSpaces);
   return (
     <Router>
       <Header />
       <div className="container mx-auto my-4">
         <Routes>
           <Route path="/" element={<Home espacios={espacios} />} />
-          <Route path="espacios" element={<Espacios espacios={espaciosDisplay} loadMore={loadMore}/>} />
+          <Route path="espacios" element={<Espacios espacios={espaciosDisplay}
+            loadMore={loadMore}
+            search={search}
+            setSearch={setSearch}
+            hasMore={espaciosDisplay.length <= filteredSpaces.length}
+            />} />
           <Route path="contacto" element={<Contacto />} />
         </Routes>
       </div>

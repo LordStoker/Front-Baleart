@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Search from './Search';
 
 export default function SpaceList({espacio}) {
 

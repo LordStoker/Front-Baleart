@@ -6,15 +6,16 @@ export default function Header() {
 
   return (
     <header className="bg-gray-800 text-white shadow-md py-1 rounded-lg relative">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        <h1 className="text-2xl font-bold py-5">Baleart</h1>
-        <nav className="flex-1 flex justify-center items-center">
-          <ul className="flex space-x-4">
+      <div className="container flex justify-between items-center px-1">
+        <h1 className=" text-2xl font-bold py-2 flex items-center leading-none">Baleart</h1>
+        <nav className="navbar flex items-center">
+          <ul className="flex space-x-4 items-center">
             <li>
               <NavLink
+                style={{ textDecoration: "none" }}
                 to="/"
                 className={({ isActive }) =>
-                  `relative block text-lg font-bold px-4 py-2 transition-all duration-500 cursor-pointer
+                  `relative text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"
@@ -27,9 +28,10 @@ export default function Header() {
             </li>
             <li>
               <NavLink
+                style={{ textDecoration: "none" }}
                 to="espacios"
                 className={({ isActive }) =>
-                  `relative block text-lg font-bold px-4 py-2 transition-all duration-500 cursor-pointer
+                  `relative block text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"
@@ -42,9 +44,10 @@ export default function Header() {
             </li>
             <li>
               <NavLink
+                style={{ textDecoration: "none" }}
                 to="contacto"
                 className={({ isActive }) =>
-                  `relative block text-lg font-bold px-4 py-2 transition-all duration-500 cursor-pointer
+                  `relative block text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"
@@ -58,8 +61,9 @@ export default function Header() {
           </ul>
         </nav>
         
+        {/* Usuario + Botón Idiomas */}
         <div className="flex items-center space-x-4">
-          <div className="text-lg font-bold px-3">Usuario</div>
+          <div className="text-lg font-bold px-3 flex items-center leading-none">Hola, Usuario</div>
           <div className="relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
