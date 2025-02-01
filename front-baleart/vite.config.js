@@ -4,11 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [tailwindcss(), react()  ],
   server: {
     proxy: {
       '/api': {
-        target: 'http://baleart.test',
+        target: 'http://baleart1.test',
         changeOrigin: true,
         secure: false,
       },

@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react';
 import Home from './pages/Home';
 import Espacios from './pages/Espacios';
 import Contacto from './pages/Contacto';
+import Space from  './pages/Space';
 
 
 export default function App() {
@@ -54,6 +55,7 @@ export default function App() {
             hasMoreFiltered={espaciosDisplay.length < filteredSpaces.length}
             />} />
           <Route path="contacto" element={<Contacto />} />
+          <Route path="espacio/:id" element={<Space />} />
         </Routes>
       </div>
       <Footer />      

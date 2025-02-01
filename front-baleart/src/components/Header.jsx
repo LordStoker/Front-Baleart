@@ -5,7 +5,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gray-800 text-white shadow-md py-1 rounded-lg relative">
+    <header className="bg-gray-800 text-white shadow-md py-1 rounded-lg relative md:grid-cols-2">
       <div className="container flex justify-between items-center px-1">
         <h1 className=" text-2xl font-bold py-2 flex items-center leading-none">Baleart</h1>
         <nav className="navbar flex items-center">
