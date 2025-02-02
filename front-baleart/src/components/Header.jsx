@@ -5,9 +5,9 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gray-800 text-white shadow-md py-1 rounded-lg relative md:grid-cols-2">
+    <header className="sticky top-0 bg-gray-800 text-white shadow-md  rounded-lg z-50 md:grid-cols-2">
       <div className="container flex justify-between items-center px-1">
-        <h1 className=" text-2xl font-bold py-2 flex items-center leading-none">Baleart</h1>
+        <p className="text-2xl font-bold py-2 flex items-center leading-none">Baleart</p>
         <nav className="navbar flex items-center">
           <ul className="flex space-x-4 items-center">
             <li>
@@ -31,7 +31,7 @@ export default function Header() {
                 style={{ textDecoration: "none" }}
                 to="espacios"
                 className={({ isActive }) =>
-                  `relative  text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
+                  `relative text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"
@@ -47,7 +47,7 @@ export default function Header() {
                 style={{ textDecoration: "none" }}
                 to="contacto"
                 className={({ isActive }) =>
-                  `relative  text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
+                  `relative text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
                 ${
                   isActive
                     ? "bg-red-500 text-white"

@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Espacios from './pages/Espacios';
 import Contacto from './pages/Contacto';
 import Space from  './pages/Space';
+import "flowbite";
 
 
 export default function App() {
@@ -20,9 +21,10 @@ export default function App() {
     fetch('/api/space')
       .then((response) => response.json())
       .then((data) => {
-        setEspacios(data.data);
-        setFilteredSpaces(data.data);
-        setEspaciosDisplay(data.data.slice(0, 12)); 
+        const sortedData = data.data.sort((a, b) => b.Puntuacióntotal - a.Puntuacióntotal || Math.random() - 0.5);
+        setEspacios(sortedData);
+        setFilteredSpaces(sortedData);
+        setEspaciosDisplay(sortedData.slice(0, 12)); 
       })
   }, []);
 

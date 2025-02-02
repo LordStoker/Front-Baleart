@@ -28,7 +28,7 @@ export default function SpaceList({espacio}) {
           alt={espacio.Nombre}
         />
         <div className="card-header text-center">
-          <h5 className="card-title text-lg font-bold flex justify-center">{espacio.Nombre}</h5>
+          <p className="card-title text-2xl font-bold flex justify-center">{espacio.Nombre}</p>
         </div>
         <div className="card-body">
           <p className="card-text text-gray-600 flex justify-center">Municipio: {espacio.Dirección.split(' - ')[1]}</p>

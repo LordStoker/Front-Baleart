@@ -1,8 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.css";
-/* @plugin "flowbite/plugin";
-@source "../node_modules/flowbite"; */
+/* @import "flowbite/dist/flowbite.css"; */
+
 
 .resaltada{
     background-color: #ef233c;
