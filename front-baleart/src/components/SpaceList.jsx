@@ -16,8 +16,6 @@ export function renderStars(rating) {
 export default function SpaceList({espacio}) {
 
   const [readMore, setReadMore] = useState(false);
-
-
     return (
       <div className="col text-1xl font-bold py-2 flex items-center leading-none">
       <div className="card h-250 shadow-lg border-0 transition-transform duration-400 hover:scale-105">
@@ -32,7 +30,7 @@ export default function SpaceList({espacio}) {
         </div>
         <div className="card-body">
           <p className="card-text text-gray-600 flex justify-center">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
-          <p className="card-text text-gray-600 flex justify-center items-center">Valoración: {espacio.Puntuacióntotal}{renderStars(espacio.Puntuacióntotal)}</p>
+          <p className="card-text text-gray-600 flex justify-center items-center">Valoración: {espacio.Puntuacióntotal}&nbsp;{renderStars(espacio.Puntuacióntotal)} </p>
           <p className="card-text text-gray-600 flex justify-center">Comentarios: {espacio.Nºdevotaciones}</p>
           <div className="flex flex-nowrap justify-center">
           <p className="card-text text-gray-600 flex justify-center">{espacio.Servicios.length > 0 && 'Servicios: '}&nbsp;</p>
