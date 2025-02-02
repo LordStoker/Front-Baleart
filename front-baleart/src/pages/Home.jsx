@@ -1,11 +1,30 @@
-import React, { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Carousel, Spinner } from 'react-bootstrap';
 import { renderStars } from '../components/SpaceList';
 
 export default function Home({ espacios }) {
-    const topEspacios = espacios
-        .sort((a, b) => b.rating - a.rating)
-        .slice(0, 4);
+    const [loading, setLoading] = useState(true);
+    const [topEspacios, setTopEspacios] = useState([]);
+
+    useEffect(() => {
+        if (espacios.length > 0) {
+            const sortedEspacios = espacios
+                .sort((a, b) => b.rating - a.rating)
+                .slice(0, 4);
+            setTopEspacios(sortedEspacios);
+            setLoading(false);
+        }
+    }, [espacios]);
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto p-4">

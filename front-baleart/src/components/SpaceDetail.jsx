@@ -1,11 +1,18 @@
 import { renderStars } from "./SpaceList";
 import SpaceType from "./SpaceType";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Spinner } from 'react-bootstrap';
 
 export default function SpaceDetail({ espacio }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const commentsPerPage = 2;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
+  }, []);
 
   const indexOfLastComment = currentPage * commentsPerPage;
   const indexOfFirstComment = indexOfLastComment - commentsPerPage;
@@ -16,6 +23,16 @@ export default function SpaceDetail({ espacio }) {
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
+  }
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+          <Spinner animation="border" role="status">
+              
+          </Spinner>
+      </div>
+  );
   }
 
   return (
@@ -39,13 +56,13 @@ export default function SpaceDetail({ espacio }) {
             {renderStars(espacio.Puntuacióntotal)}
           </p>
 
-          <p className="card-text text-gray-600 flex">
+          <p className="card-text text-gray-600 flex ">
             {espacio.Servicios?.length > 0 && "Servicios: "}&nbsp;
           </p>
-          <div className="flex flex-nowrap ">
+          <div className="flex flex-wrap ">
             {espacio.Servicios?.map((servicio, index) => (
               <div
-                className="card-text text-gray-600 flex items-center"
+                className="card-text text-gray-600 flex items-center mr-2"
                 key={index}
                 title={servicio.Nombre_ES}
               >
@@ -188,55 +205,54 @@ export default function SpaceDetail({ espacio }) {
           </div>
         </div>
         <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
-        <p className="text-3xl font-semibold text-gray-700">
-          Añadir Comentario
-        </p>
-        <form className="mt-4">
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="comentario"
-            >
-              Comentario
-            </label>
-            <textarea
-              id="comentario"
-              name="comentario"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Escribe tu comentario"
-            ></textarea>
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="puntuacion"
-            >
-              Puntuación
-            </label>
-            <select
-              id="puntuacion"
-              name="puntuacion"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            >
-              <option value="1">1 estrella</option>
-              <option value="2">2 estrellas</option>
-              <option value="3">3 estrellas</option>
-              <option value="4">4 estrellas</option>
-              <option value="5">5 estrellas</option>
-            </select>
-          </div>
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
+          <p className="text-3xl font-semibold text-gray-700">
+            Añadir Comentario
+          </p>
+          <form className="mt-4">
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="comentario"
+              >
+                Comentario
+              </label>
+              <textarea
+                id="comentario"
+                name="comentario"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Escribe tu comentario"
+              ></textarea>
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="puntuacion"
+              >
+                Puntuación
+              </label>
+              <select
+                id="puntuacion"
+                name="puntuacion"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="1">1 estrella</option>
+                <option value="2">2 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="5">5 estrellas</option>
+              </select>
+            </div>
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      </div>
-     
     </>
   );
 }

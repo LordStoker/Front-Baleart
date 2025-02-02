@@ -5,10 +5,10 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 bg-gray-800 text-white shadow-md  rounded-lg z-50 md:grid-cols-2">
+    <header className="sticky top-0 bg-gray-800 text-white shadow-md rounded-lg z-50 md:grid-cols-2">
       <div className="container flex justify-between items-center px-1">
-        <p className="text-2xl font-bold py-2 flex items-center leading-none">Baleart</p>
-        <nav className="navbar flex items-center">
+        <p className="text-2xl font-bold py-2 ml-4 flex items-center leading-none">Baleart</p>
+        <nav className="navbar flex items-center ml-5">
           <ul className="flex space-x-4 items-center">
             <li>
               <NavLink
@@ -62,8 +62,8 @@ export default function Header() {
         </nav>
         
         {/* Usuario + Botón Idiomas */}
-        <div className="flex items-center space-x-4">
-          <div className="text-lg font-bold px-3 flex items-center leading-none">Hola, Usuario</div>
+        <div className="flex items-center space-x-1 py-2 mb-3">
+          <div className="text-lg font-bold px-1 flex items-center leading-none">Hola, Usuario</div>
           <div className="relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
