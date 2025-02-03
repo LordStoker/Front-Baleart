@@ -11,11 +11,12 @@ import "flowbite";
 
 
 export default function App() {
-
-  const [espacios, setEspacios] = useState([])
-  const [espaciosDisplay, setEspaciosDisplay] = useState([])
-  const [filteredSpaces, setFilteredSpaces] = useState([]); 
+  const [espacios, setEspacios] = useState([]);
+  const [espaciosDisplay, setEspaciosDisplay] = useState([]);
+  const [filteredSpaces, setFilteredSpaces] = useState([]);
   const [search, setSearch] = useState('');
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [selectedModalities, setSelectedModalities] = useState([]);
 
   useEffect(() => {
     fetch('/api/space')
@@ -25,44 +26,49 @@ export default function App() {
         setEspacios(sortedData);
         setFilteredSpaces(sortedData);
         setEspaciosDisplay(sortedData.slice(0, 12)); 
-      })
+      });
   }, []);
 
-  //Renderiza de nuevo el filtro cuando cambia search
   useEffect(() => {
-    const filteredSpaces = espacios.filter(espacio =>
-      espacio.Nombre.toLowerCase().includes(search.toLowerCase())
-    );
-    setFilteredSpaces(filteredSpaces); //Guarda los filtrados
-    setEspaciosDisplay(filteredSpaces.slice(0, 12)); //Guarda los filtrados que se van a mostrar.
-  }, [search]);
+    const filteredSpaces = espacios.filter(espacio => {
+      const matchesName = espacio.Nombre.toLowerCase().includes(search.toLowerCase());
+      const matchesServices = selectedServices.every(service => espacio.Servicios.some(s => s.Nombre_ES === service));
+      const matchesModalities = selectedModalities.every(modality => espacio.Modalidades.some(m => m.Nombre_ES === modality));
+      return matchesName && matchesServices && matchesModalities;
+    });
+    setFilteredSpaces(filteredSpaces);
+    setEspaciosDisplay(filteredSpaces.slice(0, 12));
+  }, [search, selectedServices, selectedModalities]);
 
   function loadMore() {
     const moreSpaces = filteredSpaces.slice(espaciosDisplay.length, espaciosDisplay.length + 6);
     setEspaciosDisplay([...espaciosDisplay, ...moreSpaces]);
   }
 
-  console.log(espacios);
-  // console.log(filteredSpaces);
   return (
     <Router>
       <Header />
       <div className="container mx-auto my-4">
         <Routes>
           <Route path="/" element={<Home espacios={espacios} />} />
-          <Route path="espacios" element={<Espacios espacios={espaciosDisplay}
+          <Route path="espacios" element={<Espacios 
+            espacios={espaciosDisplay}
             loadMore={loadMore}
             search={search}
             setSearch={setSearch}
+            selectedServices={selectedServices}
+            setSelectedServices={setSelectedServices}
+            selectedModalities={selectedModalities}
+            setSelectedModalities={setSelectedModalities}
             hasMoreFiltered={espaciosDisplay.length < filteredSpaces.length}
-            />} />
+          />} />
           <Route path="contacto" element={<Contacto />} />
           <Route path="espacio/:id" element={<Space />} />
         </Routes>
       </div>
       <Footer />      
     </Router>
-  )
+  );
 }
 
 
