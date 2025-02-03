@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import SpaceService from './SpaceService';
+import SpaceModality from './SpaceModality';
 
 export function renderStars(rating) {
   return Array.from({ length: 5 }, (_, i) => {
@@ -19,10 +21,10 @@ export default function SpaceList({ espacio }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a data fetch
+
     setTimeout(() => {
       setLoading(false);
-    }, 1000); // Adjust the timeout as needed
+    }, 1000); 
   }, []);
 
   if (loading) {
@@ -54,19 +56,8 @@ export default function SpaceList({ espacio }) {
             <div className="flex flex-nowrap justify-center">
               <p className="card-text text-gray-600 flex justify-center">{espacio.Servicios.length > 0 && 'Servicios: '}&nbsp;</p>
               {espacio.Servicios.map((servicio, index) => (
-                <div className="card-text text-gray-600 mr-2 flex " key={index} title={servicio.Nombre_ES}>
-                  {servicio.Nombre_ES === 'Adaptado discapacitados' ? <i className="fa-brands fa-accessible-icon"></i> :
-                    servicio.Nombre_ES === 'Aire acondicionado' ? <i className="fa-solid fa-fan"></i> :
-                    servicio.Nombre_ES === 'Biblioteca' ? <i className="fa-solid fa-book"></i> :
-                    servicio.Nombre_ES === 'Cafetería' ? <i className="fa-solid fa-mug-hot"></i> :
-                    servicio.Nombre_ES === 'Archivo' ? <i className="fa-solid fa-box-archive"></i> :
-                    servicio.Nombre_ES === 'Talleres' ? <i className="fa-solid fa-hand-dots"></i> :
-                    servicio.Nombre_ES === 'Aparcamiento' ? <i className="fa-solid fa-square-parking"></i> :
-                    servicio.Nombre_ES === 'Conciertos' ? <i className="fa-solid fa-music"></i> :
-                    servicio.Nombre_ES === 'Visitas concertadas' ? <i className="fa-solid fa-calendar-days"></i> :
-                    servicio.Nombre_ES === 'Wifi' ? <i className="fa-solid fa-wifi"></i> :
-                    servicio.Nombre_ES === 'Conferencias' ? <i className="fa-solid fa-comment"></i> :
-                    servicio.Nombre_ES === 'Baños' ? <i className="fa-solid fa-restroom"></i> : <i className="fa-solid fa-person-chalkboard"></i>}
+                <div className="card-text text-gray-600 mr-2 flex " key={index} title={servicio.Nombre_ES}>                  
+                    <SpaceService service={servicio} />
                 </div>
               ))}
             </div>
@@ -74,7 +65,9 @@ export default function SpaceList({ espacio }) {
               <p className="card-text text-gray-600 flex justify-center">{espacio.Modalidades.length > 0 && 'Modalidades: '}&nbsp;</p>
               {espacio.Modalidades.map((modalidad, index) => (
                 <div className="card-text text-gray-600 mr-2 flex items-stretch justify-between" key={index} title={modalidad.Nombre_ES}>
-                  {modalidad.Nombre_ES === 'Pintura' ? <i className="fa-solid fa-palette"></i> :
+                  <SpaceModality modality={modalidad} />
+                  
+                  {/* {modalidad.Nombre_ES === 'Pintura' ? <i className="fa-solid fa-palette"></i> :
                     modalidad.Nombre_ES === 'Escultura' ? <i className="fa-solid fa-building-columns"></i> :
                     modalidad.Nombre_ES === 'Fotografía' ? <i className="fa-solid fa-camera"></i> :
                     modalidad.Nombre_ES === 'Videoarte' ? <i className="fa-solid fa-video"></i> :
@@ -87,7 +80,7 @@ export default function SpaceList({ espacio }) {
                     modalidad.Nombre_ES === 'Música' ? <i className="fa-solid fa-headphones-simple"></i> :
                     modalidad.Nombre_ES === 'Vídeo' ? <i className="fa-solid fa-video"></i> :
                     modalidad.Nombre_ES === 'Estampación' ? <i className="fa-solid fa-stamp"></i> :
-                    modalidad.Nombre_ES === 'Vidrio' ? <i className="fa-solid fa-wine-glass-empty"></i> : ''}
+                    modalidad.Nombre_ES === 'Vidrio' ? <i className="fa-solid fa-wine-glass-empty"></i> : ''} */}
                 </div>
               ))}
             </div>
