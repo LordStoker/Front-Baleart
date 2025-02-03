@@ -75,6 +75,9 @@ export default function SpaceList({ espacio }) {
           <button onClick={() => setReadMore(!readMore)} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">{readMore ? "Mostrar menos" : "Mostrar más"}</button>
         </div>
       </div>
+      
     </div>
+
+    
   );
 }
