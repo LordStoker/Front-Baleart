@@ -5,9 +5,6 @@ import SpaceService from "../components/SpaceService"
 import SpaceModality from "../components/SpaceModality"
 import { useState, useEffect } from 'react';
 
-
-
-
 export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch, selectedServices, setSelectedServices, selectedModalities, setSelectedModalities }) {
   const [services, setServices] = useState([]);
   const [modalities, setModalities] = useState([]);
@@ -24,7 +21,7 @@ export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch
     .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  const handleServiceChange = (service) => {
+  function handleServiceChange (service) {
     setSelectedServices(prevSelected => 
       prevSelected.includes(service) 
       ? prevSelected.filter(s => s !== service) 
@@ -32,7 +29,7 @@ export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch
     );
   };
 
-  const handleModalityChange = (modality) => {
+  function handleModalityChange (modality) {
     setSelectedModalities(prevSelected => 
       prevSelected.includes(modality) 
       ? prevSelected.filter(m => m !== modality) 
