@@ -14,6 +14,7 @@ export default function SpaceService({ service }) {
       "Visitas concertadas": "fa-solid fa-calendar-days",
       "Wifi": "fa-solid fa-wifi",
       "Conferencias": "fa-solid fa-comment",
+      "Teatro": "fa-solid fa-theater-masks",  
       "Baños": "fa-solid fa-restroom"
     };
     
