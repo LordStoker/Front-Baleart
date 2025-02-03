@@ -11,7 +11,7 @@ export default function SpaceModality({ modality }) {
       "Joyas": "fa-solid fa-gem",
       "Ilustración": "fa-solid fa-panorama",
       "Música": "fa-solid fa-headphones-simple",
-      "Vídeo": "fa-solid fa-video",
+      "Video": "fa-solid fa-video",
       "Estampación": "fa-solid fa-stamp",
       "Vidrio": "fa-solid fa-wine-glass-empty"
     };

@@ -23,19 +23,6 @@ export default function Filter({ services, modalities, onFilterChange }) {
   };
 
   return (
-    <div className="filter-sidebar">
-      <h3>Filtrar por Servicios</h3>
-      {services.map((service, index) => (
-        <div key={index} onClick={() => handleServiceChange(service)}>
-          <SpaceService service={service} />
-        </div>
-      ))}
-      <h3>Filtrar por Modalidades</h3>
-      {modalities.map((modality, index) => (
-        <div key={index} onClick={() => handleModalityChange(modality)}>
-          <SpaceModality modality={modality} />
-        </div>
-      ))}
-    </div>
+
   );
 }
