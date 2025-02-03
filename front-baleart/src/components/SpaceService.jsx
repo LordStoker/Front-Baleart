@@ -3,6 +3,7 @@
 export default function SpaceService({ service }) {
     const iconMap = {
       "Adaptado discapacitados": "fa-brands fa-accessible-icon",
+      "Admite mascotas": "fa-solid fa-dog",
       "Aire acondicionado": "fa-solid fa-fan",
       "Biblioteca": "fa-solid fa-book",
       "Cafetería": "fa-solid fa-mug-hot",

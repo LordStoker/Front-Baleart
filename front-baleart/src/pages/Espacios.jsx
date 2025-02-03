@@ -28,28 +28,38 @@ export default function Espacio({espacios, loadMore, hasMoreFiltered, setSearch}
 
     return(
         <>
-        <div className="row row-cols-1 row-cols-md-2 pt-1 row-cols-lg-3 g-4">
-        <Search handleChange={setSearch} />
-        {espacios.map(espacio =>
-         <SpaceList key={espacio.Identificador} espacio={espacio} />)}
-          <div className="filter-sidebar">
-            <h3>Filtrar por Servicios</h3>
-            {services.map((service, index) => (
-              <div key={index} onClick={() => handleServiceChange(service)}>
-                <SpaceService service={service} />
+        <div className="row">
+          <div className="col-lg-3">
+            <div className="filter-sidebar" style={{ position: 'sticky', top: '0', height: '100vh', overflowY: 'auto', padding: '1rem', backgroundColor: '#f8f9fa', borderRight: '1px solid #dee2e6' }}>
+              <h3>Filtrar por Servicios</h3>
+              <div className="row row-cols-4">
+                {services.map((service, index) => (
+                  <div key={index} className="col" title={service.Nombre_ES} onClick={() => handleServiceChange(service)}>
+                    <SpaceService service={service} />
+                  </div>
+                ))}
               </div>
-            ))}
-            <h3>Filtrar por Modalidades</h3>
-            {modalities.map((modality, index) => (
-              <div key={index} onClick={() => handleModalityChange(modality)}>
-                <SpaceModality modality={modality} />
+              <h3>Filtrar por Modalidades</h3>
+              <div className="row row-cols-4">
+                {modalities.map((modality, index) => (
+                  <div key={index} className="col" title={modality.Nombre_ES} onClick={() => handleModalityChange(modality)}>
+                    <SpaceModality modality={modality} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+          <div className="col-lg-9">
+            <div className="row row-cols-1 row-cols-md-2 pt-1 row-cols-lg-3 g-4">
+              <Search handleChange={setSearch} />
+              {espacios.map(espacio =>
+                <SpaceList key={espacio.Identificador} espacio={espacio} />)}
+            </div>
+            <LoadMoreButton
+              hasMoreFiltered={hasMoreFiltered}
+              handleClick={loadMore} />
           </div>
         </div>
-        <LoadMoreButton
-        hasMoreFiltered={hasMoreFiltered}
-        handleClick={loadMore} />
         </>
     )
     
