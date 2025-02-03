@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import SpaceService from './SpaceService';
 import SpaceModality from './SpaceModality';
+import spaces from '../data/spaces.json';
 
 export function renderStars(rating) {
   return Array.from({ length: 5 }, (_, i) => {
@@ -15,6 +16,7 @@ export function renderStars(rating) {
     }
   });
 }
+
 
 export default function SpaceList({ espacio }) {
   const [readMore, setReadMore] = useState(false);
@@ -33,17 +35,20 @@ export default function SpaceList({ espacio }) {
               <span className="sr-only"></span>
           </Spinner>
       </div>
-  );
+    );
   }
+
+
 
   return (
     <div className="col text-1xl font-bold py-2 flex items-center leading-none">
-      <div className="card h-250 shadow-lg border-0 transition-transform duration-400 hover:scale-105">
+      <div className="card shadow-lg border-0 transition-transform duration-400 hover:scale-105">
         <Link to={`/espacio/${espacio.Identificador}`} className="text-decoration-none link-dark">
           <img
-            src='https://baleart-handling.com/wp-content/uploads/2022/01/baleart_casal-solleric_resized_29.jpg'
+            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
             className="card-img-top"
             alt={espacio.Nombre}
+            height={200}
           />
           <div className="card-header text-center">
             <p className="card-title text-2xl font-bold flex justify-center">{espacio.Nombre}</p>

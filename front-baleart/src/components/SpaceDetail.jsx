@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Spinner } from 'react-bootstrap';
 import SpaceService from "./SpaceService";
 import SpaceModality from "./SpaceModality";
+import spaces from '../data/spaces.json';
 
 export default function SpaceDetail({ espacio }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,15 +39,15 @@ export default function SpaceDetail({ espacio }) {
 
   return (
     <>
-      <div className="md:grid md:grid-cols-1 gap-6 p-6 bg-gray-50 rounded-lg shadow-lg">
+      <div className="md:grid md:grid-cols-1 gap-6 p-6 bg-gray-200 rounded-lg shadow-lg">
         <div className="space-y-1">
           <p className="text-2xl font-bold text-gray-800">{espacio.Nombre}</p>
           <SpaceType tipo={espacio.Tipodeespacio} />
           <p className="text-gray-600">{espacio.Dirección}</p>
           <img
-            src="https://baleart-handling.com/wp-content/uploads/2022/01/baleart_casal-solleric_resized_29.jpg"
+            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
             alt={espacio.Nombre}
-            className="w-full h-96 object-cover rounded-lg"
+            className="w-full h-auto object-cover rounded-lg"
           />
 
           <p className="text-lg text-gray-600">{espacio.Detalles_ES}</p>
@@ -92,7 +93,7 @@ export default function SpaceDetail({ espacio }) {
             <p className="text-3xl font-semibold text-gray-700">Comentarios</p>
             {currentComments?.length > 0 ? (
               currentComments.map((comentario, index) => (
-                <div key={index} className="mt-4">
+                <div key={index} className="mt-4 bg-blue-300 rounded-lg p-4">
                   <p className="text-gray-800 font-semibold">
                     {comentario.Autor.Email}
                   </p>

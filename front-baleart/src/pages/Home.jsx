@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Spinner } from 'react-bootstrap';
 import { renderStars } from '../components/SpaceList';
+import spaces from '../data/spaces.json';
+import compareRegisterNumber from '../components/SpaceList';
 
 export default function Home({ espacios }) {
     const [loading, setLoading] = useState(true);
@@ -34,7 +36,7 @@ export default function Home({ espacios }) {
                     <Carousel.Item key={index}>
                         <img
                             className="d-block w-full h-96 object-cover"
-                            src={"https://baleart-handling.com/wp-content/uploads/2022/01/baleart_casal-solleric_resized_29.jpg"}
+                            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
                             alt={espacio.Nombre}
                         />
                         <Carousel.Caption className="bg-gray-800 bg-opacity-75 p-1 rounded-b-lg">

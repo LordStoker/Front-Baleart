@@ -44,7 +44,7 @@ export default function App() {
     const moreSpaces = filteredSpaces.slice(espaciosDisplay.length, espaciosDisplay.length + 6);
     setEspaciosDisplay([...espaciosDisplay, ...moreSpaces]);
   }
-
+console.log(espacios);
   return (
     <Router>
       <Header />
