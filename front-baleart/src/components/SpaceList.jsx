@@ -21,7 +21,6 @@ export default function SpaceList({ espacio }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     setTimeout(() => {
       setLoading(false);
     }, 1000); 
@@ -55,7 +54,7 @@ export default function SpaceList({ espacio }) {
             <p className="card-text text-gray-600 flex justify-center">Comentarios: {espacio.Nºdevotaciones}</p>
             <div className="flex flex-nowrap justify-center">
               <p className="card-text text-gray-600 flex justify-center">{espacio.Servicios.length > 0 && 'Servicios: '}&nbsp;</p>
-              {espacio.Servicios.map((servicio, index) => (
+              {espacio.Servicios?.map((servicio, index) => (
                 <div className="card-text text-gray-600 mr-2 flex " key={index} title={servicio.Nombre_ES}>                  
                     <SpaceService service={servicio} />
                 </div>
@@ -63,24 +62,9 @@ export default function SpaceList({ espacio }) {
             </div>
             <div className="flex flex-nowrap justify-center items-stretch">
               <p className="card-text text-gray-600 flex justify-center">{espacio.Modalidades.length > 0 && 'Modalidades: '}&nbsp;</p>
-              {espacio.Modalidades.map((modalidad, index) => (
+              {espacio.Modalidades?.map((modalidad, index) => (
                 <div className="card-text text-gray-600 mr-2 flex items-stretch justify-between" key={index} title={modalidad.Nombre_ES}>
                   <SpaceModality modality={modalidad} />
-                  
-                  {/* {modalidad.Nombre_ES === 'Pintura' ? <i className="fa-solid fa-palette"></i> :
-                    modalidad.Nombre_ES === 'Escultura' ? <i className="fa-solid fa-building-columns"></i> :
-                    modalidad.Nombre_ES === 'Fotografía' ? <i className="fa-solid fa-camera"></i> :
-                    modalidad.Nombre_ES === 'Videoarte' ? <i className="fa-solid fa-video"></i> :
-                    modalidad.Nombre_ES === 'Grafiti' ? <i className="fa-solid fa-spray-can"></i> :
-                    modalidad.Nombre_ES === 'Instalación' ? <i className="fa-solid fa-users-gear"></i> :
-                    modalidad.Nombre_ES === 'Performance' ? <i className="fa-solid fa-chart-simple"></i> :
-                    modalidad.Nombre_ES === 'Tejidos' ? <i className="fa-solid fa-shirt"></i> :
-                    modalidad.Nombre_ES === 'Joyas' ? <i className="fa-solid fa-gem"></i> :
-                    modalidad.Nombre_ES === 'Ilustración' ? <i className="fa-solid fa-panorama"></i> :
-                    modalidad.Nombre_ES === 'Música' ? <i className="fa-solid fa-headphones-simple"></i> :
-                    modalidad.Nombre_ES === 'Vídeo' ? <i className="fa-solid fa-video"></i> :
-                    modalidad.Nombre_ES === 'Estampación' ? <i className="fa-solid fa-stamp"></i> :
-                    modalidad.Nombre_ES === 'Vidrio' ? <i className="fa-solid fa-wine-glass-empty"></i> : ''} */}
                 </div>
               ))}
             </div>
