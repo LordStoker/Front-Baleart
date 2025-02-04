@@ -8,6 +8,7 @@ import Espacios from './pages/Espacios';
 import Contacto from './pages/Contacto';
 import Space from  './pages/Space';
 import "flowbite";
+import Comentarios from './pages/Comentarios';
 
 
 export default function App() {
@@ -17,6 +18,8 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [selectedServices, setSelectedServices] = useState([]);
   const [selectedModalities, setSelectedModalities] = useState([]);
+  const [selectedSpaceType, setSelectedSpaceType] = useState([]);
+  const [selectedMunicipality, setSelectedMunicipality] = useState([]);
 
   useEffect(() => {
     fetch('/api/space')
@@ -32,13 +35,29 @@ export default function App() {
   useEffect(() => {
     const filteredSpaces = espacios.filter(espacio => {
       const matchesName = espacio.Nombre.toLowerCase().includes(search.toLowerCase());
-      const matchesServices = selectedServices.every(service => espacio.Servicios.some(s => s.Nombre_ES === service));
-      const matchesModalities = selectedModalities.every(modality => espacio.Modalidades.some(m => m.Nombre_ES === modality));
-      return matchesName && matchesServices && matchesModalities;
+  
+      const matchesServices = selectedServices.length === 0 || 
+        selectedServices.every(service => 
+          espacio.Servicios.some(s => s.Nombre === service)
+        );
+  
+      const matchesModalities = selectedModalities.length === 0 || 
+        selectedModalities.every(modality => 
+          espacio.Modalidades.some(m => m.Nombre === modality)
+        );
+  
+      const matchesSpaceType = selectedSpaceType.length === 0 || 
+        selectedSpaceType.includes(espacio.Tipodeespacio);
+
+      const matchesMunicipality = !selectedMunicipality||
+       espacio.Dirección.split(' - ')[1] === selectedMunicipality;
+  
+      return matchesName && matchesServices && matchesModalities && matchesSpaceType && matchesMunicipality;
     });
+  
     setFilteredSpaces(filteredSpaces);
     setEspaciosDisplay(filteredSpaces.slice(0, 12));
-  }, [search, selectedServices, selectedModalities]);
+  }, [search, selectedServices, selectedModalities, selectedSpaceType, selectedMunicipality]);
 
   function loadMore() {
     const moreSpaces = filteredSpaces.slice(espaciosDisplay.length, espaciosDisplay.length + 6);
@@ -60,10 +79,15 @@ console.log(espacios);
             setSelectedServices={setSelectedServices}
             selectedModalities={selectedModalities}
             setSelectedModalities={setSelectedModalities}
+            selectedSpaceType={selectedSpaceType}
+            setSelectedSpaceType={setSelectedSpaceType}
+            selectedMunicipality={selectedMunicipality}
+            setSelectedMunicipality={setSelectedMunicipality}
             hasMoreFiltered={espaciosDisplay.length < filteredSpaces.length}
           />} />
           <Route path="contacto" element={<Contacto />} />
           <Route path="espacio/:id" element={<Space />} />
+          <Route path="comentarios" element={<Comentarios />} />
         </Routes>
       </div>
       <Footer />      

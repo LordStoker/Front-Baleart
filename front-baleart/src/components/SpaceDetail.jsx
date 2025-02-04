@@ -95,7 +95,7 @@ export default function SpaceDetail({ espacio }) {
               currentComments.map((comentario, index) => (
                 <div key={index} className="mt-4 bg-blue-300 rounded-lg p-4">
                   <p className="text-gray-800 font-semibold">
-                    {comentario.Autor.Email}
+                    {comentario.Autor.Nombre + " " + comentario.Autor.Apellidos}
                   </p>
                   <p className="text-gray-600">{comentario.Comentario}</p>
 
@@ -104,14 +104,14 @@ export default function SpaceDetail({ espacio }) {
                       comentario.Imágenes?.map((imagen, imgIndex) => (
                         <a
                           key={imgIndex}
-                          href="https://baleart-handling.com/wp-content/uploads/2022/01/baleart_casal-solleric_resized_29.jpg"
+                          href={imagen.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-16 h-16 mr-2 mb-2"
                         >
                           <img
-                            src="https://baleart-handling.com/wp-content/uploads/2022/01/baleart_casal-solleric_resized_29.jpg"
-                            alt={`Comentario de ${comentario.Autor.Email}`}
+                            src={imagen.url}
+                            alt={`Comentario de ${comentario.Autor.Nombre} ${comentario.Autor.Apellidos}`}
                             className="w-full h-full object-cover rounded-lg"
                           />
                         </a>

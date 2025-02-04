@@ -19,6 +19,7 @@ export default function SpaceService({ service }) {
     };
     
     return(
+      
         <i className={iconMap[service.Nombre_ES] || "fa-solid fa-person-chalkboard"}></i>
     );
 }

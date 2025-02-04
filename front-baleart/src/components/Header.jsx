@@ -58,6 +58,22 @@ export default function Header() {
                 Contacto
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="comentarios"
+                className={({ isActive }) =>
+                  `relative text-lg font-bold px-4 py-2 flex items-center h-full leading-none transition-all duration-500 cursor-pointer
+                ${
+                  isActive
+                    ? "bg-red-500 text-white"
+                    : "bg-transparent text-gray-300 hover:bg-red-300 hover:text-white"
+                } rounded-lg`
+                }
+              >
+                Comentarios
+              </NavLink>
+            </li>
           </ul>
         </nav>
         
