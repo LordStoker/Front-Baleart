@@ -1,6 +1,4 @@
-
-
-export default function SpaceTypeIcon({ tipo }) {
+export default function SpaceTypeForFilter({ tipo }) {
   const iconMap = {
     "Museo": "fa-solid fa-landmark",
     "Galería": "fa-solid fa-images",
@@ -30,9 +28,8 @@ export default function SpaceTypeIcon({ tipo }) {
   };
 
   return (
-    <div className="flex items-center space-x-2 text-gray-700 text-lg">
-      <i className={iconMap[tipo] || "fa-solid fa-map-marker-alt"}></i>
-      <span>{tipo}</span>
+    <div className="flex items-center space-x-2 text-lg">
+      <i className={iconMap[tipo] || "fa-solid fa-map-marker-alt"} style={{ color: "#8a0194" }}></i>
     </div>
   );
 }

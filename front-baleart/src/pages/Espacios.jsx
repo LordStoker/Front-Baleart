@@ -89,7 +89,7 @@ return (
                 key={index}
                 style={{ cursor: 'pointer' }}
                 title={modality.Nombre}
-                className={`p-1 m-1 border rounded-full ${selectedModalities.includes(modality.Nombre) ? 'bg-red-800 text-white' : 'bg-white text-black'}`}
+                className={`p-1 m-1 border rounded-full ${selectedModalities.includes(modality.Nombre) ? 'bg-red-300 text-white' : 'bg-white text-black'}`}
                 onClick={() => handleModalityChange(modality.Nombre)}
               >
                 <SpaceModality modality={modality} />

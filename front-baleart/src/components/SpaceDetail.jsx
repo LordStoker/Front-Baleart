@@ -12,6 +12,7 @@ export default function SpaceDetail({ espacio }) {
   const commentsPerPage = 2;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setTimeout(() => {
       setLoading(false);
     }, 1000); 
@@ -98,8 +99,9 @@ export default function SpaceDetail({ espacio }) {
                     {comentario.Autor.Nombre + " " + comentario.Autor.Apellidos}
                   </p>
                   <p className="text-gray-600">{comentario.Comentario}</p>
-
-                  <div className="flex flex-wrap mt-2">
+                  <div className="flex text-gray-950 text-2xl font-bold">🖼️Imágenes</div>
+                  <div className="flex grid-rows-2 flex-wrap mt-2">
+                    
                     {comentario.Imágenes &&
                       comentario.Imágenes?.map((imagen, imgIndex) => (
                         <a

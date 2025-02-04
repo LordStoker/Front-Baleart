@@ -49,33 +49,32 @@ export default function SpaceList({ espacio }) {
             src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
             className="card-img-top"
             alt={espacio.Nombre}
-            height={200}
           />
-          <div className="card-header text-center">
-            <div className="flex justify-center" title={espacio.Tipodeespacio}><SpaceTypeForFilter tipo={espacio.Tipodeespacio}/></div>
-            <p className="card-title text-2xl font-bold flex justify-center">{<> &nbsp; {espacio.Nombre}</>}</p>
+          <div className="text-center bg-red-300">
+            <div className="flex justify-center bg-fuchsia-300  border-4 border-fuchsia-800 rounded-lg" title={espacio.Tipodeespacio}><SpaceTypeForFilter tipo={espacio.Tipodeespacio}/></div>
+            <p className="card-title text-2xl font-bold flex justify-center bg-emerald-300 border-4 border-emerald-800 rounded-lg">{<> &nbsp; {espacio.Nombre}</>}</p>
           </div>
-          <div className="card-body">
-            <p className="card-text text-gray-600 flex justify-center">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
-            <p className="card-text text-gray-600 flex justify-center items-center">Valoración: {espacio.Puntuacióntotal}&nbsp;{renderStars(espacio.Puntuacióntotal)} </p>
-            <p className="card-text text-gray-600 flex justify-center">Comentarios: {espacio.Nºdevotaciones}</p>
-            <div className="flex flex-nowrap justify-center">
-              <p className="card-text text-gray-600 flex justify-center">{espacio.Servicios.length > 0 && 'Servicios: '}&nbsp;</p>
+          <div className="card-body bg-pink-300 ">
+            <p className="card-text text-gray-600 flex border-b-2 border-b-black ">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
+            <p className="card-text text-gray-600 flex  items-center border-b-2 border-b-black">Valoración: {espacio.Puntuacióntotal}&nbsp;{renderStars(espacio.Puntuacióntotal)} </p>
+            <p className="card-text text-gray-600 flex border-b-2 border-b-black ">Comentarios: {espacio.Nºdevotaciones}</p>
+            <div className="flex flex-nowrap border-b-2 border-b-black ">
+              <p className="card-text text-blue-800 flex  ">{espacio.Servicios.length > 0 && 'Servicios: '}&nbsp;</p>
               {espacio.Servicios?.map((servicio, index) => (
                 <div className="card-text text-gray-600 mr-2 flex " key={index} title={servicio.Nombre_ES}>                  
                     <SpaceService service={servicio} />
                 </div>
               ))}
             </div>
-            <div className="flex flex-nowrap justify-center items-stretch">
-              <p className="card-text text-gray-600 flex justify-center">{espacio.Modalidades.length > 0 && 'Modalidades: '}&nbsp;</p>
+            <div className="flex flex-nowrap items-stretch border-b-2 border-b-black pt-3">
+              <p className="card-text text-red-900 flex ">{espacio.Modalidades.length > 0 && 'Modalidades: '}&nbsp;</p>
               {espacio.Modalidades?.map((modalidad, index) => (
                 <div className="card-text text-gray-600 mr-2 flex items-stretch justify-between" key={index} title={modalidad.Nombre_ES}>
                   <SpaceModality modality={modalidad} />
                 </div>
               ))}
             </div>
-            <p className="card-text text-gray-600">{readMore ? espacio.Detalles_ES : `${espacio.Detalles_ES.substring(0, 100)}...`}</p>
+            <p className="card-text text-gray-600 border-b-2">{readMore ? espacio.Detalles_ES : `${espacio.Detalles_ES.substring(0, 100)}...`}</p>
           </div>
         </Link>
         <div className="card-footer text-center">

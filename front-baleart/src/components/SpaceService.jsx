@@ -20,6 +20,6 @@ export default function SpaceService({ service }) {
     
     return(
       
-        <i className={iconMap[service.Nombre_ES] || "fa-solid fa-person-chalkboard"}></i>
+        <i className={iconMap[service.Nombre_ES] || "fa-solid fa-person-chalkboard"} style={{ color: "#0424a4" }} ></i>
     );
 }
