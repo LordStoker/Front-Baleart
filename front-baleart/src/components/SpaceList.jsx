@@ -50,11 +50,11 @@ export default function SpaceList({ espacio }) {
             className="card-img-top"
             alt={espacio.Nombre}
           />
-          <div className="text-center bg-red-300">
+          <div className="text-center ">
             <div className="flex justify-center bg-fuchsia-300  border-4 border-fuchsia-800 rounded-lg" title={espacio.Tipodeespacio}><SpaceTypeForFilter tipo={espacio.Tipodeespacio}/></div>
             <p className="card-title text-2xl font-bold flex justify-center bg-emerald-300 border-4 border-emerald-800 rounded-lg">{<> &nbsp; {espacio.Nombre}</>}</p>
           </div>
-          <div className="card-body bg-pink-300 ">
+          <div className="card-body bg-blue-300 ">
             <p className="card-text text-gray-600 flex border-b-2 border-b-black ">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
             <p className="card-text text-gray-600 flex  items-center border-b-2 border-b-black">Valoración: {espacio.Puntuacióntotal}&nbsp;{renderStars(espacio.Puntuacióntotal)} </p>
             <p className="card-text text-gray-600 flex border-b-2 border-b-black ">Comentarios: {espacio.Nºdevotaciones}</p>
