@@ -4,6 +4,7 @@ import { Spinner } from 'react-bootstrap';
 import SpaceService from './SpaceService';
 import SpaceModality from './SpaceModality';
 import spaces from '../data/spaces.json';
+import SpaceTypeForFilter from './SpaceTypeForFilter';
 
 export function renderStars(rating) {
   return Array.from({ length: 5 }, (_, i) => {
@@ -51,7 +52,8 @@ export default function SpaceList({ espacio }) {
             height={200}
           />
           <div className="card-header text-center">
-            <p className="card-title text-2xl font-bold flex justify-center">{espacio.Nombre}</p>
+            <div className="flex justify-center" title={espacio.Tipodeespacio}><SpaceTypeForFilter tipo={espacio.Tipodeespacio}/></div>
+            <p className="card-title text-2xl font-bold flex justify-center">{<> &nbsp; {espacio.Nombre}</>}</p>
           </div>
           <div className="card-body">
             <p className="card-text text-gray-600 flex justify-center">Municipio: {espacio.Dirección.split(' - ')[1]}</p>
