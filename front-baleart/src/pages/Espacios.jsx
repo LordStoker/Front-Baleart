@@ -6,7 +6,7 @@ import SpaceModality from "../components/SpaceModality"
 import SpaceTypeForFilter from "../components/SpaceTypeForFilter"
 import { useState, useEffect } from 'react';
 
-export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch, selectedServices, setSelectedServices, selectedModalities, setSelectedModalities, selectedSpaceType, setSelectedSpaceType, selectedMunicipality, setSelectedMunicipality }) {
+export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch, selectedServices, setSelectedServices, selectedModalities, setSelectedModalities, selectedSpaceType, setSelectedSpaceType, setSelectedMunicipality }) {
   const [services, setServices] = useState([]);
   const [modalities, setModalities] = useState([]);
   const [types, setTypes] = useState([]);
@@ -53,10 +53,7 @@ export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch
   };
 
 
-  console.log(types);
-  console.log(modalities);
-  console.log(services);
-  console.log(municipios);
+
 
 return (
   <>
@@ -124,7 +121,7 @@ return (
             className="p-1 m-1 border rounded-full bg-white text-black"
             onChange={(e) => setSelectedMunicipality(e.target.value)}
           >
-            <option value="">Seleccione un municipio</option>
+            <option value="">- Ninguno -</option>
             {municipios.map((municipio, index) => (
             <option key={index} value={municipio.Municipio}>
               {municipio.Municipio}

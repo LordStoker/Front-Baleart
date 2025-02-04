@@ -19,7 +19,7 @@ export default function App() {
   const [selectedServices, setSelectedServices] = useState([]);
   const [selectedModalities, setSelectedModalities] = useState([]);
   const [selectedSpaceType, setSelectedSpaceType] = useState([]);
-  const [selectedMunicipality, setSelectedMunicipality] = useState([]);
+  const [selectedMunicipality, setSelectedMunicipality] = useState("");
 
   useEffect(() => {
     fetch('/api/space')

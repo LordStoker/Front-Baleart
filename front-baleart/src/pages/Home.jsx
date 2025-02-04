@@ -22,9 +22,7 @@ export default function Home({ espacios }) {
     if (loading) {
         return (
             <div className="flex justify-center items-center h-screen">
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <Spinner animation="border" role="status"/>
             </div>
         );
     }
