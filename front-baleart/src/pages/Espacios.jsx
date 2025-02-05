@@ -69,7 +69,7 @@ return (
                 key={index}
                 style={{ cursor: 'pointer' }}
                 title={service.Nombre}
-                className={`p-1 m-1 border rounded-full ${selectedServices.includes(service.Nombre) ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
+                className={`p-1 m-1 border rounded-full ${selectedServices.includes(service.Nombre) ? 'bg-blue-500' : 'bg-white'}`}
                 onClick={() => handleServiceChange(service.Nombre)}
               >
                 <SpaceService service={service} />

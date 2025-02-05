@@ -30,7 +30,7 @@ export default function SpaceTypeForFilter({ tipo }) {
   return (
     <div className="flex items-center space-x-2 text-lg">
       <i className={iconMap[tipo] || "fa-solid fa-map-marker-alt"} style={{ color: "#8a0194" }} title={tipo}></i>
-      <span>{tipo}</span>
+      <span className="text-fuchsia-800 font-bold text-lg">{tipo}</span>
     </div>
   );
 }

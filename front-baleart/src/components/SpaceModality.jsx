@@ -17,6 +17,6 @@ export default function SpaceModality({ modality }) {
     };
     
     return(
-        <i className={iconMap[modality.Nombre_ES] || ""} style={{ color: "#9f0712" }}></i>
+        <i className={iconMap[modality.Nombre] || ""} style={{ color: "#9f0712" }}></i>
     );
 }
