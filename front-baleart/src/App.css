@@ -13,12 +13,16 @@
 }
 .no-underline a {
     text-decoration: none;
-
   }
 
-  .filter{
+.filter{
     margin-top: 5vh;
-  }
+}
+/* 
+.loadmorebutton{
+  margin-bottom: 30px;
+  margin-top: -20px;
+} */
 
 
 

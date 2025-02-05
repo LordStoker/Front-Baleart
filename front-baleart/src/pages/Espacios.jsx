@@ -98,7 +98,7 @@ return (
           </div>
 
           <div className="flex items-center mt-3 mb-1">
-            <p className="font-bold text-md">Tipo de Espacio:</p>
+            <p className="font-bold text-md">Buscar por varios tipo espacio:</p>
           </div>
           <div className="flex flex-wrap">
             {types.map((type, index) => (

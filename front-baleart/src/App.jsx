@@ -67,7 +67,7 @@ console.log(espacios);
   return (
     <Router>
       <Header />
-      <div className="container mx-auto my-4">
+      <div className="container mx-auto my-1">
         <Routes>
           <Route path="/" element={<Home espacios={espacios} />} />
           <Route path="espacios" element={<Espacios 

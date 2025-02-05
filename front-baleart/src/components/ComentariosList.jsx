@@ -5,9 +5,9 @@ import {renderStars} from "./SpaceList";
 export default function ComentariosList({comentarios, loadMore, hasMoreFiltered}){
     return(
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
                 {comentarios.map((comentario, index) => (
-                    <div key={index} className="p-4 border rounded shadow bg-blue-300">
+                    <div key={index} className="p-4 border rounded shadow bg-blue-300 mb-4">
                         <div className="font-bold text-lg">{comentario.Autor.Nombre} {comentario.Autor.Apellidos}</div>
                         <div className="text-gray-500 text-sm">{comentario.Espacio}</div>
                         <div className="mt-2">{comentario.Comentario}</div>
