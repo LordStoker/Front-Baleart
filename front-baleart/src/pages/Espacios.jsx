@@ -52,14 +52,11 @@ export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch
     );
   };
 
-
-
-
 return (
   <>
     <div className="row">
       <div className="col-lg-3">
-        <div className="filter p-3 rounded-lg shadow-md sticky top-10 bg-zinc-200">
+        <div className="filter p-3 rounded-lg shadow-md sticky top-15 bg-zinc-200">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 12.414V19a1 1 0 01-.553.894l-4 2A1 1 0 019 21v-8.586L3.293 6.707A1 1 0 013 6V4z"></path>
           </svg>
