@@ -20,6 +20,7 @@ export default function App() {
   const [selectedModalities, setSelectedModalities] = useState([]);
   const [selectedSpaceType, setSelectedSpaceType] = useState([]);
   const [selectedMunicipality, setSelectedMunicipality] = useState("");
+  const [selectedStars, setSelectedStars] = useState("");  
 
   useEffect(() => {
     fetch('/api/space')
@@ -51,19 +52,25 @@ export default function App() {
 
       const matchesMunicipality = !selectedMunicipality||
        espacio.Dirección.split(' - ')[1] === selectedMunicipality;
+
+      const matchedStars = !selectedStars ||
+        Math.trunc(espacio.Puntuacióntotal) === parseInt(selectedStars);
+
+        
   
-      return matchesName && matchesServices && matchesModalities && matchesSpaceType && matchesMunicipality;
+      return matchesName && matchesServices && matchesModalities && matchesSpaceType && matchesMunicipality && matchedStars;
     });
   
     setFilteredSpaces(filteredSpaces);
     setEspaciosDisplay(filteredSpaces.slice(0, 12));
-  }, [search, selectedServices, selectedModalities, selectedSpaceType, selectedMunicipality]);
+  }, [search, selectedServices, selectedModalities, selectedSpaceType, selectedMunicipality, selectedStars]);
 
   function loadMore() {
     const moreSpaces = filteredSpaces.slice(espaciosDisplay.length, espaciosDisplay.length + 6);
     setEspaciosDisplay([...espaciosDisplay, ...moreSpaces]);
   }
 console.log(espacios);
+
   return (
     <Router>
       <Header />
@@ -81,8 +88,8 @@ console.log(espacios);
             setSelectedModalities={setSelectedModalities}
             selectedSpaceType={selectedSpaceType}
             setSelectedSpaceType={setSelectedSpaceType}
-            selectedMunicipality={selectedMunicipality}
             setSelectedMunicipality={setSelectedMunicipality}
+            setSelectedStars={setSelectedStars}
             hasMoreFiltered={espaciosDisplay.length < filteredSpaces.length}
           />} />
           <Route path="contacto" element={<Contacto />} />

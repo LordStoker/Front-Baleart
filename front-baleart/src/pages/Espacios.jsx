@@ -6,11 +6,12 @@ import SpaceModality from "../components/SpaceModality"
 import SpaceTypeForFilter from "../components/SpaceTypeForFilter"
 import { useState, useEffect } from 'react';
 
-export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch, selectedServices, setSelectedServices, selectedModalities, setSelectedModalities, selectedSpaceType, setSelectedSpaceType, setSelectedMunicipality }) {
+export default function Espacio({ espacios, loadMore, hasMoreFiltered, setSearch, selectedServices, setSelectedServices, selectedModalities, setSelectedModalities, selectedSpaceType, setSelectedSpaceType, setSelectedMunicipality, setSelectedStars }) {
   const [services, setServices] = useState([]);
   const [modalities, setModalities] = useState([]);
   const [types, setTypes] = useState([]);
   const [municipios, setMunicipios] = useState([]);
+
 
   useEffect(() => {
     Promise.all([
@@ -95,7 +96,7 @@ return (
           </div>
 
           <div className="flex items-center mt-3 mb-1">
-            <p className="font-bold text-md">Buscar por varios tipo espacio:</p>
+            <p className="font-bold text-md">Buscar varios tipo espacio:</p>
           </div>
           <div className="flex flex-wrap">
             {types.map((type, index) => (
@@ -109,6 +110,27 @@ return (
                 <SpaceTypeForFilter tipo={type.description_ES} />
               </div>
             ))}
+          </div>
+
+          <div className="flex items-center mt-3 mb-1">
+            <p className="font-bold text-md">Valoración:</p>
+          </div>
+          <div className="flex flex-wrap">
+            <select
+              className="p-1 m-1 border rounded-full bg-white text-black"
+              onChange={(e) => setSelectedStars(e.target.value)}
+            >
+              <option value="">- Ninguno -</option>
+              {[0, 1, 2, 3, 4, 5].map((rating) => (
+                <option key={rating} value={rating}>
+                  {rating === 0 ? 'Sin valoración' : 
+                    rating === 1 ? '★' :
+                    rating === 2 ? '★★' :
+                    rating === 3 ? '★★★' : 
+                    rating === 4 ? '★★★★' : '★★★★★'}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="flex items-center mt-3 mb-1">
           <p className="font-bold text-md">Municipios:</p>
