@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({language, setLanguage}) {
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(language);
 
   return (
     <header className="sticky top-0 bg-gray-800 text-white shadow-md rounded-lg z-50 md:grid-cols-2 py-0">
@@ -23,7 +25,7 @@ export default function Header() {
                 } rounded-lg`
                 }
               >
-                Inicio
+                {language === 'esp' ? 'Inicio' : language === 'cat' ? 'Inici' : 'Home'}
               </NavLink>
             </li>
             <li>
@@ -90,9 +92,9 @@ export default function Header() {
             </button>
             {isOpen && (
               <ul className="absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded-lg shadow-lg z-50">
-                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Català</li>
-                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">English</li>
-                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Castellano</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer" onClick={() => setLanguage('cat')}>Català</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer" onClick={() => setLanguage('eng')}>Inglés</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer" onClick={() => setLanguage('esp')}>Castellano</li>
               </ul>
             )}
           </div>

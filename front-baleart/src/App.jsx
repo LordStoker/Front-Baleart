@@ -21,6 +21,7 @@ export default function App() {
   const [selectedSpaceType, setSelectedSpaceType] = useState([]);
   const [selectedMunicipality, setSelectedMunicipality] = useState("");
   const [selectedStars, setSelectedStars] = useState("");  
+  const [language, setLanguage] = useState("esp");
 
   useEffect(() => {
     fetch('/api/space')
@@ -73,7 +74,7 @@ console.log(espacios);
 
   return (
     <Router>
-      <Header />
+      <Header language={language} setLanguage={setLanguage} />
       <div className="container mx-auto my-1">
         <Routes>
           <Route path="/" element={<Home espacios={espacios} />} />

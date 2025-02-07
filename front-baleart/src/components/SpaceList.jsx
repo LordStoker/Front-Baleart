@@ -40,7 +40,7 @@ export default function SpaceList({ espacio }) {
 
   return (
     <div className="col text-1xl font-bold flex items-center leading-none">
-      <div className="card shadow-lg border-0 transition-transform duration-400 hover:scale-103 h-100 gap-2 mb-3 flex flex-col px-1">
+      <div className="card shadow-lg border-0 transition-transform duration-400 hover:scale-103 h-100 gap-2 mb-4 flex flex-col px-1">
         <Link to={`/espacio/${espacio.Identificador}`} className="text-decoration-none link-dark flex-grow">
           <img
             src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
