@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
-export default function Space() {
+export default function Space({language}) {
     const { id } = useParams();
     const [espacio, setEspacio] = useState({});
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function Space() {
     console.log(espacio);
     return (
         <div className="container mx-auto px-4 py-8">
-            <SpaceDetail espacio={espacio}/>
+            <SpaceDetail espacio={espacio} language={language}/>
         </div>
         
     )

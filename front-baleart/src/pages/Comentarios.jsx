@@ -3,7 +3,7 @@ import ComentariosList from '../components/ComentariosList';
 import { Spinner } from 'react-bootstrap';
 
 
-export default function Comentarios() {
+export default function Comentarios({language}) {
 
     const [comentarios, setComentarios] = useState([]);
     const [ loading, setLoading ] = useState(true);
@@ -28,18 +28,17 @@ export default function Comentarios() {
       if (loading) {
         return (
             <div className="flex justify-center items-center h-screen">
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <Spinner animation="border" role="status"/>
             </div>
         );
     }
     return(
-        <div className= "container mx-auto p-4">        
+        <div className= "container mx-auto p-4 mt-4">        
             <ComentariosList
             comentarios={comentariosDisplayed}
             loadMore={loadMore}
-            hasMoreFiltered={comentariosDisplayed.length < comentarios.length }/>
+            hasMoreFiltered={comentariosDisplayed.length < comentarios.length }
+            language={language}/>
         </div>
     )
 }

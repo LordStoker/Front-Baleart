@@ -2,7 +2,7 @@ import LoadMoreButton from "./LoadMoreButton";
 import {renderStars} from "./SpaceList";
 
 
-export default function ComentariosList({comentarios, loadMore, hasMoreFiltered}){
+export default function ComentariosList({comentarios, loadMore, hasMoreFiltered, language}){
     return(
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
@@ -17,7 +17,7 @@ export default function ComentariosList({comentarios, loadMore, hasMoreFiltered}
                             </a>
                         ))}
                         </div>
-                        <div className="text-blue-600">Puntuación: {comentario.Puntuación} {renderStars(comentario.Puntuación)}</div>
+                        <div className="text-blue-600">{language === 'esp' ? 'Puntuación' : language === 'cat' ? 'Puntuació' : 'Score'}: {comentario.Puntuación} {renderStars(comentario.Puntuación)}</div>
                     </div>
                 ))}
             </div>

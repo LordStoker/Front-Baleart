@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Contacto() {
+export default function Contacto({language}) {
     const [showNotification, setShowNotification] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -41,7 +41,7 @@ export default function Contacto() {
             )}
             <form className="mt-4 p-4 border rounded shadow-sm bg-light" onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Nombre</label>
+                    <label htmlFor="name" className="form-label">{language === 'es' ? 'Nombre' : language === 'cat' ? 'Nom' : 'Name'}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -52,7 +52,7 @@ export default function Contacto() {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                    <label htmlFor="email" className="form-label">{language === 'es' ? 'Correo electrónico' : language === 'cat' ? 'Correu electrònic' : 'Email'}</label>
                     <input 
                         type="email" 
                         className="form-control" 
@@ -63,23 +63,21 @@ export default function Contacto() {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="asunto" className="form-label">Asunto</label>
+                    <label htmlFor="asunto" className="form-label">{language === 'es' ? 'Asunto' : language === 'cat' ? 'Assumpte' : 'Topic'}</label>
                     <input 
                         type="text" 
                         className="form-control" 
                         id="asunto" 
-                        placeholder="Error en la página " 
                         value={formData.asunto} 
                         onChange={handleChange} 
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="message" className="form-label">Mensaje</label>
+                    <label htmlFor="message" className="form-label">{language === 'esp' ? 'Mensaje' : language === 'cat' ? 'Missatge' : 'Message'}</label>
                     <textarea 
                         className="form-control" 
                         id="message" 
                         rows="3" 
-                        placeholder="Tu mensaje" 
                         value={formData.message} 
                         onChange={handleChange} 
                     ></textarea>

@@ -1,38 +1,26 @@
-
-export default function Footer(){
-    return (
-        <footer className= " loadmorebutton bg-gray-900 text-gray-300 py-1 mt-3 top-227 fixed w-full h-6">
-          <div className="container mx-auto text-center">
-            <p className="text-sm">
-              © 2025 Baleart. Todos los derechos reservados.
-            </p>
-            <ul className="d-flex justify-content-center gap-1 mt-1">
-              <li>
-                <a
-                  href=""
-                  className="text-gray-300 hover:text-blue-400 transition-all"
-                >
-                  <i className="bi bi-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href=""
-                  className="text-gray-300 hover:text-blue-400 transition-all"
-                >
-                  <i className="bi bi-twitter-x"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href=""
-                  className="text-gray-300 hover:text-blue-400 transition-all"
-                >
-                  <i className="bi bi-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </footer>
-      );
+export default function Footer({language}) {
+  return (
+    <footer className="bg-gray-900 text-gray-300 py-0 mt-auto w-full">
+      <div className="container mx-auto text-center">
+        <ul className="flex justify-center gap-4 mt-2">
+          <li>
+            <a href="#" className="text-gray-300 hover:text-blue-400 transition-all" aria-label="Facebook">
+              <i className="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-300 hover:text-blue-400 transition-all" aria-label="Twitter X">
+              <i className="fab fa-x-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-300 hover:text-blue-400 transition-all" aria-label="Instagram">
+              <i className="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+        <p className="text-sm">© 2025 Baleart. {language === 'esp' ? 'Todos los derechos reservados.' : language === 'cat' ? 'Tots els drets reservats.' : 'All rights reserved.'}</p>
+      </div>
+    </footer>
+  );
 }

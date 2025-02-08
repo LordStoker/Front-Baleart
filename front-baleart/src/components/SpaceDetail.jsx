@@ -6,7 +6,7 @@ import SpaceService from "./SpaceService";
 import SpaceModality from "./SpaceModality";
 import spaces from '../data/spaces.json';
 
-export default function SpaceDetail({ espacio }) {
+export default function SpaceDetail({ espacio, language }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const commentsPerPage = 2;
@@ -32,8 +32,7 @@ export default function SpaceDetail({ espacio }) {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-          <Spinner animation="border" role="status">              
-          </Spinner>
+          <Spinner animation="border" role="status"/>
       </div>
   );
   }
@@ -51,23 +50,23 @@ export default function SpaceDetail({ espacio }) {
             className="w-full h-auto object-cover rounded-lg"
           />
 
-          <p className="text-lg text-gray-600">{espacio.Detalles_ES}</p>
-          <p className="text-gray-600">Comentarios: {espacio.Nºdevotaciones}</p>
+          <p className="text-lg text-gray-600">{language === 'esp' ? espacio.Detalles_ES : language === 'cat' ? espacio.Detalles_CA : espacio.Detalles_EN}</p>
+          <p className="text-gray-600">{language === 'esp' ? 'Comentarios' : language === 'cat' ? 'Comentaris' : 'Comments'}: {espacio.Nºdevotaciones}</p>
 
           <p className="text-3xl font-semibold text-gray-700">
-            Valoración: {espacio.Puntuacióntotal}{" "}
+            {language === 'esp' ? 'Valoración: ': language === 'cat' ? 'Valoració: ' : 'Score: '} {espacio.Puntuacióntotal}{" "}
             {renderStars(espacio.Puntuacióntotal)}
           </p>
 
           <p className="card-text text-gray-600 flex ">
-            {espacio.Servicios?.length > 0 && "Servicios: "}&nbsp;
+            {espacio.Servicios?.length > 0 &&  language === 'esp' ? "Servicios: " : language === 'cat' ? 'Serveis:' : 'Services:'}&nbsp;
           </p>
           <div className="flex flex-wrap ">
             {espacio.Servicios?.map((servicio, index) => (
               <div
                 className="card-text text-gray-600 flex items-center mr-2"
                 key={index}
-                title={servicio.Nombre_ES}
+                title={language === 'esp' ? servicio.Nombre_ES : language === 'cat' ? servicio.Nombre_CA : servicio.Nombre_EN}
                 >
                 <SpaceService service={servicio} />
               </div>
@@ -82,7 +81,7 @@ export default function SpaceDetail({ espacio }) {
               <div
                 className="card-text text-gray-600 mr-2 flex "
                 key={index}
-                title={modalidad.Nombre_ES}
+                title={language === 'esp' ? modalidad.Nombre_ES : language === 'cat' ? modalidad.Nombre_CA : modalidad.Nombre_EN}
               >
                 <SpaceModality modality={modalidad} />
               </div>
@@ -91,7 +90,7 @@ export default function SpaceDetail({ espacio }) {
         </div>
         <div className="space-y-6">
           <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
-            <p className="text-3xl font-semibold text-gray-700">Comentarios</p>
+            <p className="text-3xl font-semibold text-gray-700">{language === 'esp' ? 'Comentarios' : language === 'cat' ? 'Comentaris' : 'Comments'}</p>
             {currentComments?.length > 0 ? (
               currentComments.map((comentario, index) => (
                 <div key={index} className="mt-4 bg-blue-300 rounded-lg p-4">
@@ -99,7 +98,7 @@ export default function SpaceDetail({ espacio }) {
                     {comentario.Autor.Nombre + " " + comentario.Autor.Apellidos}
                   </p>
                   <p className="text-gray-600">{comentario.Comentario}</p>
-                  <div className="flex text-gray-950 text-2xl font-bold">🖼️Imágenes</div>
+                  <div className="flex text-gray-950 text-2xl font-bold">{comentario.Imágenes?.length > 0 && '🖼️Imágenes'}</div>
                   <div className="flex grid-rows-2 flex-wrap mt-2">
                     
                     {comentario.Imágenes &&
@@ -120,13 +119,13 @@ export default function SpaceDetail({ espacio }) {
                       ))}
                   </div>
                   <p className="text-blue-600">
-                    Puntuación: {comentario.Puntuación}{" "}
+                    {language === 'esp' ? 'Puntuación' : language === 'cat' ? 'Puntuació' : 'Score'}: {comentario.Puntuación}{" "}
                     {renderStars(comentario.Puntuación)}
                   </p>
                 </div>
               ))
             ) : (
-              <p className="text-gray-600">No hay comentarios disponibles.</p>
+              <p className="text-gray-600">{language === 'esp' ? 'No hay comentarios disponibles.' : language === 'cat' ? 'No hi ha comentaris disponibles.' : 'There is no available comments to show.'}</p>
             )}
             <div className="flex justify-center mt-4">
               {Array.from(

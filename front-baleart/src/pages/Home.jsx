@@ -5,7 +5,7 @@ import spaces from '../data/spaces.json';
 import compareRegisterNumber from '../components/SpaceList';
 import { Link } from 'react-router-dom';
 
-export default function Home({ espacios }) {
+export default function Home({ espacios, language }) {
     const [loading, setLoading] = useState(true);
     const [topEspacios, setTopEspacios] = useState([]);
 
@@ -29,7 +29,7 @@ export default function Home({ espacios }) {
 
     return (
         <div className="container mx-auto p-4">
-            <p className="text-4xl font-extrabold text-center my-4 text-gray-800">Espacios más destacados</p>
+            <p className="text-4xl font-extrabold text-center my-4 py-2 text-gray-800">{language === 'esp' ? 'Espacios más destacados' : language === 'cat' ? 'Espais més destacats' : 'Featured spaces'}</p>
             <Carousel className="shadow-lg rounded-lg overflow-hidden">
                 {topEspacios.map((espacio, index) => (
                     <Carousel.Item key={index}>
@@ -42,7 +42,7 @@ export default function Home({ espacios }) {
                         </Link>
                         <Carousel.Caption className="bg-gray-800 bg-opacity-75 p-1 rounded-b-lg">
                             <h3 className="text-xl font-semibold text-white">{espacio.Nombre}</h3>
-                            <p className="text-base text-yellow-400">Valoración: {renderStars(espacio.Puntuacióntotal)}</p>
+                            <p className="text-base text-yellow-400">{language === 'esp' ?'Valoración:' : language === 'cat' ? 'Valoració:' : 'Score:'} {renderStars(espacio.Puntuacióntotal)}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 ))}

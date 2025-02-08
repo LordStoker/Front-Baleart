@@ -56,11 +56,8 @@ export default function App() {
 
       const matchedStars = !selectedStars ||
         Math.trunc(espacio.Puntuacióntotal) === parseInt(selectedStars);
-
-        
-  
       return matchesName && matchesServices && matchesModalities && matchesSpaceType && matchesMunicipality && matchedStars;
-    });
+    }, []);
   
     setFilteredSpaces(filteredSpaces);
     setEspaciosDisplay(filteredSpaces.slice(0, 12));
@@ -77,7 +74,7 @@ console.log(espacios);
       <Header language={language} setLanguage={setLanguage} />
       <div className="container mx-auto my-1">
         <Routes>
-          <Route path="/" element={<Home espacios={espacios} />} />
+          <Route path="/" element={<Home espacios={espacios} language={language}/>} />
           <Route path="espacios" element={<Espacios 
             espacios={espaciosDisplay}
             loadMore={loadMore}
@@ -89,16 +86,19 @@ console.log(espacios);
             setSelectedModalities={setSelectedModalities}
             selectedSpaceType={selectedSpaceType}
             setSelectedSpaceType={setSelectedSpaceType}
+            selectedMunicipality={selectedMunicipality}
             setSelectedMunicipality={setSelectedMunicipality}
+            selectedStars={selectedStars}
             setSelectedStars={setSelectedStars}
             hasMoreFiltered={espaciosDisplay.length < filteredSpaces.length}
+            language={language}
           />} />
-          <Route path="contacto" element={<Contacto />} />
-          <Route path="espacio/:id" element={<Space />} />
-          <Route path="comentarios" element={<Comentarios />} />
+          <Route path="contacto" element={<Contacto language={language} />} />
+          <Route path="espacio/:id" element={<Space language={language} />} />
+          <Route path="comentarios" element={<Comentarios language={language} />} />
         </Routes>
       </div>
-      <Footer />      
+      <Footer language={language}/>      
     </Router>
   );
 }
