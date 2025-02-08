@@ -21,7 +21,7 @@ export default function ComentariosList({comentarios, loadMore, hasMoreFiltered,
                     </div>
                 ))}
             </div>
-            <LoadMoreButton hasMoreFiltered={hasMoreFiltered} handleClick={loadMore}/>
+            <LoadMoreButton hasMoreFiltered={hasMoreFiltered} handleClick={loadMore} language={language}/>
         </div>
     )
 }

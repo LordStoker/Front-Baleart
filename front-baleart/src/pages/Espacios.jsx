@@ -170,7 +170,9 @@ return (
         </div>
         <LoadMoreButton
           hasMoreFiltered={hasMoreFiltered}
-          handleClick={loadMore} />
+          handleClick={loadMore}
+          language={language}
+           />
       </div>
     </div>
   </>
