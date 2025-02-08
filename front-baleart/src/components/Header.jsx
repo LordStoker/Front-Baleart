@@ -21,9 +21,9 @@ export default function Header({ language, setLanguage }) {
   }
 
   return (
-    <header className="no-underline fixed top-0 left-0 w-full bg-gray-800  text-white shadow-md rounded-2xl  z-50 px-4 flex justify-between items-center">
+    <header className="no-underline fixed top-0 left-0 w-full bg-gray-800 text-white shadow-md rounded-2xl z-50 px-3 flex justify-between items-center">
       
-      <p className="text-2xl font-bold ">Baleart</p>      
+      <p className="text-2xl font-bold mb-1 ">Baleart</p>      
       <nav className="flex items-center space-x-4">
         <NavLink
           to="/"
