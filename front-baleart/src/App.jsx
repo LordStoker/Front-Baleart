@@ -57,7 +57,7 @@ export default function App() {
       const matchedStars = !selectedStars ||
         Math.trunc(espacio.Puntuacióntotal) === parseInt(selectedStars);
       return matchesName && matchesServices && matchesModalities && matchesSpaceType && matchesMunicipality && matchedStars;
-    }, []);
+    });
   
     setFilteredSpaces(filteredSpaces);
     setEspaciosDisplay(filteredSpaces.slice(0, 12));
