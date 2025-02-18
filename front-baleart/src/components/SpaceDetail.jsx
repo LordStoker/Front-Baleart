@@ -5,6 +5,7 @@ import { Spinner } from 'react-bootstrap';
 import SpaceService from "./SpaceService";
 import SpaceModality from "./SpaceModality";
 import spaces from '../data/spaces.json';
+import noImage from '../assets/no-image.jpg';
 
 export default function SpaceDetail({ espacio, language }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,7 +46,7 @@ export default function SpaceDetail({ espacio, language }) {
           <SpaceType tipo={espacio.Tipodeespacio} />
           <p className="text-gray-600">{espacio.Dirección}</p>
           <img
-            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
+            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image || noImage}
             alt={espacio.Nombre}
             className="w-full h-auto object-cover rounded-lg"
           />

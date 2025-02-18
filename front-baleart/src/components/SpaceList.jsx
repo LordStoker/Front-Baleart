@@ -5,6 +5,7 @@ import SpaceService from './SpaceService';
 import SpaceModality from './SpaceModality';
 import spaces from '../data/spaces.json';
 import SpaceTypeForFilter from './SpaceTypeForFilter';
+import noImage from '../assets/no-image.jpg';
 
 export function renderStars(rating) {
   return Array.from({ length: 5 }, (_, i) => {
@@ -43,9 +44,9 @@ export default function SpaceList({ espacio, language }) {
       <div className="card shadow-lg border-0 transition-transform duration-400 hover:scale-103 h-100 gap-2 mb-4 flex flex-col px-1">
         <Link to={`/espacio/${espacio.Identificador}`} className="text-decoration-none link-dark flex-grow">
           <img
-            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image}
-            className="card-img-top h-40"
+            src={spaces.find(space => space.registre === espacio.NºRegistro)?.image || noImage}
             alt={espacio.Nombre}
+            className="card-img-top h-40"
           />
           <div className="text-center">
             <div className="flex justify-center bg-fuchsia-300 border-4 border-fuchsia-800 rounded-lg" title={espacio.Tipodeespacio}><SpaceTypeForFilter tipo={espacio.Tipodeespacio}/></div>
