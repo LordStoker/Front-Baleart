@@ -49,6 +49,7 @@ export default function Contacto({language}) {
                         placeholder="John Doe" 
                         value={formData.name} 
                         onChange={handleChange} 
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -60,6 +61,9 @@ export default function Contacto({language}) {
                         placeholder="JohnDoe@smith.com" 
                         value={formData.email} 
                         onChange={handleChange} 
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        title="Please enter a valid email address."
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -70,6 +74,7 @@ export default function Contacto({language}) {
                         id="asunto" 
                         value={formData.asunto} 
                         onChange={handleChange} 
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -80,6 +85,7 @@ export default function Contacto({language}) {
                         rows="3" 
                         value={formData.message} 
                         onChange={handleChange} 
+                        minLength={20}
                     ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">Enviar</button>

@@ -112,7 +112,7 @@ export default function SpaceDetail({ espacio, language }) {
                           className="w-16 h-16 mr-2 mb-2"
                         >
                           <img
-                            src={imagen.url}
+                            src={imagen.url || noImage}
                             alt={`Comentario de ${comentario.Autor.Nombre} ${comentario.Autor.Apellidos}`}
                             className="w-full h-full object-cover rounded-lg"
                           />

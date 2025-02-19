@@ -1,5 +1,6 @@
 import LoadMoreButton from "./LoadMoreButton";
 import {renderStars} from "./SpaceList";
+import noImage from '../assets/no-image.jpg';
 
 
 export default function ComentariosList({comentarios, loadMore, hasMoreFiltered, language}){
@@ -13,7 +14,7 @@ export default function ComentariosList({comentarios, loadMore, hasMoreFiltered,
                         <div className="mt-2">{comentario.Comentario}</div>
                         <div className="flex flex-wrap mt-2">{comentario.Imágenes && comentario.Imágenes.map((imagen, imgIndex) => (
                             <a key={imgIndex} href={imagen.url} target="_blank" rel="noopener noreferrer" className="w-16 h-16 mr-2 mb-2">
-                                <img src={imagen.url} alt={`Comentario de ${comentario.Autor.Email}`} className="w-full h-full object-cover rounded-lg"/>
+                                <img src={imagen.url || noImage} alt={`Comentario de ${comentario.Autor.Email}`} className="w-full h-full object-cover rounded-lg"/>
                             </a>
                         ))}
                         </div>
